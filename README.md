@@ -42,6 +42,13 @@
     <li>Framework JavaScript: jQuery</li>
 </ul>
 
+<h3>Instalación de proyecto basado en Laravel:</h3>
+
+<ul>
+    <li>Ejecutar <strong>composer install</strong> para instalar los paquetes de PHP</li>
+    <li>Ejecutar <strong>php artisan migrate</strong> para crear la estructura de la base de datos.</li>
+</ul>
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 ## About Laravel
