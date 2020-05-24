@@ -18,8 +18,14 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('user', 'UserController');
-Route::resource('posts', 'PostsController');
-Route::resource('comments', 'CommentsController');
+//Posts Routes
+Route::resource('posts', 'PostsController')->only('index','show', 'edit','store');
+Route::post('posts/{id}/update', 'PostsController@update')->name('posts.update');
+Route::get('posts/{id}/destroy', 'PostsController@destroy')->name('posts.destroy');
+
+//Comments Routes
+Route::resource('comments', 'CommentsController')->only('store');
+Route::get('comments/{id}/destroy','CommentsController@destroy')->name('comments.destroy');
 
 //Rutas protegidas
 Route::middleware(['auth', 'role:admin'])->group(function (){
