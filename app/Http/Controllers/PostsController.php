@@ -9,7 +9,7 @@ class PostsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','role:admin'])->except('index');
+        $this->middleware(['auth','role:admin'])->except('index','show');
     }
 
     public function index()

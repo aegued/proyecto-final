@@ -7,6 +7,7 @@
                 <div class="@yield('class','site-heading')">
                     <h1>@yield('title', 'Bienvenido a nuesto Blog')</h1>
                     <span class="subheading">@yield('subtitle', 'Todas las noticias en un solo sitio.')</span>
+                    @yield('meta')
                 </div>
             </div>
         </div>
