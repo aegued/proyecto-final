@@ -4,6 +4,7 @@
 @section('image','')
 @section('class','site-heading-2')
 @section('title','')
+@section('page_title', 'Inicio de Sesión')
 @section('subtitle','')
 
 @section('content')

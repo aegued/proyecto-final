@@ -1,1 +1,6 @@
+/*Heading*/
 .site-heading-2{padding: 30px 0;}
+
+/*Pagination*/
+.page-link{padding: .35rem .75rem; color: #17a2b8;}
+.page-item.active .page-link{background-color: #17a2b8; border-color: #17a2b8;}

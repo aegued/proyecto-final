@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+<!-- header sections -->
+@section('image','')
+@section('class','site-heading-2')
+@section('title','')
+@section('page_title', 'Registro')
+@section('subtitle','')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

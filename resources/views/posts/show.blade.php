@@ -4,6 +4,7 @@
 @section('image', $post->image_url)
 @section('class','post-heading')
 @section('title', $post->title)
+@section('page_title', $post->title)
 @section('subtitle','')
 @section('meta')
     <span class="meta">Creado por <a href="{{ route('users.show',$post->user->id) }}" class="text-info">{{ $post->user->name }}</a> {{ $post->createdDate }}</span>
