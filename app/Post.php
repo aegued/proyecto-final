@@ -13,6 +13,8 @@ class Post extends Model
     //The attributes that are mass assignable.
     protected $fillable = ['title','content','user_id', 'image_url', 'slug'];
 
+    protected $appends = ['createdDate'];
+
     //User Relationship
     public function user()
     {
@@ -33,5 +35,10 @@ class Post extends Model
                 'source' => 'title'
             ]
         ];
+    }
+
+    public function getCreatedDateAttribute()
+    {
+       return $this->created_at->diffForHumans();
     }
 }

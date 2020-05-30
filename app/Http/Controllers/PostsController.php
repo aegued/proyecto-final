@@ -25,9 +25,11 @@ class PostsController extends Controller
     public function show($slug)
     {
         $post = Post::findBySlugOrFail($slug);
+        $comments = $post->comments;
 
         return view('posts.show')->with([
-            'post'  =>  $post,
+            'post'      =>  $post,
+            'comments'  =>  $comments,
         ]);
     }
 

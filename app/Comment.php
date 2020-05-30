@@ -9,6 +9,8 @@ class Comment extends Model
     //The attributes that are mass assignable.
     protected $fillable = ['text','user_id','post_id'];
 
+    protected $appends = ['createdDate'];
+
     //User Relationship
     public function user()
     {
@@ -19,5 +21,10 @@ class Comment extends Model
     public function post()
     {
         return $this->belongsTo(Post::class);
+    }
+
+    public function getCreatedDateAttribute()
+    {
+        return $this->created_at->diffForHumans();
     }
 }
