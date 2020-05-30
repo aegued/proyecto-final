@@ -7,13 +7,14 @@
             <div class="post-preview">
                 <a href="{{ route('posts.show', $post->slug) }}">
                     <h2 class="post-title">{{ $post->title }}</h2>
-                    <h3 class="post-subtitle">{!! $post->content !!}</h3>
+                    <h3 class="post-subtitle">{!! Str::limit($post->content, 100, ' (...)') !!}</h3>
                 </a>
                 <p class="post-meta">Creado por
                     <a href="#">{{ $post->user->name }}</a>
-                    en {{ $post->created_at }}{{--September 24, 2019--}}</p>
+                    {{ $post->createdDate }}</p>
             </div>
             <hr>
         @endforeach
+        <div class="d-flex w-100 justify-content-center">{{ $posts->links() }}</div>
     </div>
 @endsection
