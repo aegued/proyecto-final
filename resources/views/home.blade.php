@@ -10,7 +10,7 @@
                     <h3 class="post-subtitle">{!! Str::limit($post->content, 100, ' (...)') !!}</h3>
                 </a>
                 <p class="post-meta">Creado por
-                    <a href="#">{{ $post->user->name }}</a>
+                    <a href="{{ route('users.show', $post->user->slug) }}">{{ $post->user->name }}</a>
                     {{ $post->createdDate }}</p>
             </div>
             <hr>

@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @yield('css')
 </head>
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100 text-dark">
 
     <!-- Navigation -->
     @include('layouts.menu')

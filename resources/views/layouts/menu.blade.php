@@ -11,7 +11,7 @@
                     <a class="nav-link" href="{{ route('home') }}">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contacto</a>
+                    <a class="nav-link" href="{{ route('contact') }}">Contacto</a>
                 </li>
                 @guest()
                     <li class="nav-item">

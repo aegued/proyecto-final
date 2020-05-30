@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('contacto', 'HomeController@contact')->name('contact');
 Route::resource('users', 'UserController');
 //Posts Routes
 Route::resource('posts', 'PostsController')->only('index','show', 'edit','store');

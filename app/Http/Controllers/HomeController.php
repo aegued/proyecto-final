@@ -19,4 +19,9 @@ class HomeController extends Controller
             'posts' =>  $posts
         ]);
     }
+
+    public function contact()
+    {
+        return view('contact');
+    }
 }
