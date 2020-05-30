@@ -36,6 +36,12 @@
                 <p class="font-weight-bold mt-4 mb-0 text-info">Email</p>
                 <small class="text-muted m-0"><a href="mailto:egued89@gmail.com">egued89@gmail.com</a></small>
             </div>
+
+            <div class="col text-center">
+                <i class="fas fa-phone fa-5x text-info"></i>
+                <p class="font-weight-bold mt-4 mb-0 text-info">Teléfono</p>
+                <small class="text-muted m-0">+34 658 797 881</small>
+            </div>
         </div>
 
         {{--<hr class="mt-5 mb-5">
