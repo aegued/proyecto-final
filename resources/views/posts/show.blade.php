@@ -7,7 +7,7 @@
 @section('page_title', $post->title)
 @section('subtitle','')
 @section('meta')
-    <span class="meta">Creado por <a href="{{ route('users.show',$post->user->id) }}" class="text-info">{{ $post->user->name }}</a> {{ $post->createdDate }}</span>
+    <span class="meta">Creado por <a href="{{ route('users.show',$post->user->slug) }}" class="text-info">{{ $post->user->name }}</a> {{ $post->createdDate }}</span>
 @endsection
 
 @section('content')

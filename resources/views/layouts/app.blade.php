@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-100">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @yield('css')
 </head>
-<body>
+<body class="d-flex flex-column h-100">
 
     <!-- Navigation -->
     @include('layouts.menu')
@@ -40,7 +40,7 @@
     <hr class="mt-5">
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer mt-auto py-3">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
