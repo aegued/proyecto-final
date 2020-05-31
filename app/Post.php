@@ -5,6 +5,7 @@ namespace App;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Post extends Model
 {
@@ -40,5 +41,10 @@ class Post extends Model
     public function getCreatedDateAttribute()
     {
        return $this->created_at->diffForHumans();
+    }
+
+    function getImageUrlPathAttribute()
+    {
+        return Storage::url($this->image_url);
     }
 }

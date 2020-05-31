@@ -39,9 +39,9 @@ class PostsController extends Controller
 
         $image = $request->file('image_url');
 
-            if ($image)
+        if ($image)
         {
-            $path = $image->storeAs('images','image_'.now()->timestamp.'.'.$image->extension());
+            $path = $image->storeAs('public/images','image_'.now()->timestamp.'.'.$image->extension());
             $post->image_url = $path;
         }
 
@@ -54,8 +54,6 @@ class PostsController extends Controller
     {
         $post = Post::findBySlugOrFail($slug);
         $comments = $post->comments;
-
-//        dd(Storage::url($post->image_url));
 
         return view('posts.show')->with([
             'post'      =>  $post,

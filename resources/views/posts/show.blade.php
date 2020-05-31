@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 <!-- header sections -->
-@section('image', asset(Storage::get($post->image_url)) )
+@section('image', $post->image_url_path )
 @section('class','post-heading')
 @section('title', $post->title)
 @section('page_title', $post->title)
