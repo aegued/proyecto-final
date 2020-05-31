@@ -20,7 +20,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('contacto', 'HomeController@contact')->name('contact');
 Route::resource('users', 'UserController');
 //Posts Routes
-Route::resource('posts', 'PostsController')->only('index','show', 'edit','store');
+Route::resource('posts', 'PostsController')->only('index', 'create','show', 'edit','store');
 Route::post('posts/{id}/update', 'PostsController@update')->name('posts.update');
 Route::get('posts/{id}/destroy', 'PostsController@destroy')->name('posts.destroy');
 

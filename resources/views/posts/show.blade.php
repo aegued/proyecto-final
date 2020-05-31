@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 <!-- header sections -->
-@section('image', $post->image_url)
+@section('image', asset(Storage::get($post->image_url)) )
 @section('class','post-heading')
 @section('title', $post->title)
 @section('page_title', $post->title)
@@ -21,7 +21,7 @@
 
             <br>
 
-            <form action="{{ route('comments.store') }}" name="sentMessage" id="commentsForm" method="POST" novalidate>
+            <form action="{{ route('comments.store') }}" id="commentsForm" method="POST">
                 @csrf
                 <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                 <input type="hidden" name="post_id" value="{{ $post->id }}">
