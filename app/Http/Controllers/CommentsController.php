@@ -33,7 +33,7 @@ class CommentsController extends Controller
             'success' => 'Comentario enviado correctamente.',
             'comment' => $comment,
             'commentUser' => $comment->user()->get(['id', 'name']),
-            'commentUserUrl' => route('users.show', $comment->user->id)
+            'commentUserUrl' => route('users.comments', $comment->user->id)
         ], 200);
     }
 

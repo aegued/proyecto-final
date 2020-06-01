@@ -29,6 +29,14 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            @if(Auth::user()->hasRole('admin'))
+                            <a href="{{ route('posts.create') }}" class="dropdown-item">Crear Artículo</a>
+
+                            <div class="dropdown-divider"></div>
+                            @endif
+
+                            <a href="{{ route('users.show',Auth::user()->slug) }}" class="dropdown-item">Perfil</a>
+
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">

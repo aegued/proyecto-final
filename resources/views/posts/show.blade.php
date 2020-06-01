@@ -7,7 +7,7 @@
 @section('page_title', $post->title)
 @section('subtitle','')
 @section('meta')
-    <span class="meta">Creado por <a href="{{ route('users.show',$post->user->slug) }}" class="text-info">{{ $post->user->name }}</a> {{ $post->createdDate }}</span>
+    <span class="meta">Creado por <a href="{{ route('users.comments',$post->user->slug) }}" class="text-info">{{ $post->user->name }}</a> {{ $post->createdDate }}</span>
 @endsection
 
 @section('content')
@@ -45,7 +45,7 @@
             @foreach($comments as $comment)
             <div class="list-group-item">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1"><a href="{{ route('users.show', $comment->user->slug) }}">{{ $comment->user->name }}</a></h5>
+                    <h5 class="mb-1"><a href="{{ route('users.comments', $comment->user->slug) }}">{{ $comment->user->name }}</a></h5>
                     <small class="text-secondary">{{ $comment->createdDate }}</small>
                 </div>
                 <p class="mb-1">{{ $comment->text }}</p>

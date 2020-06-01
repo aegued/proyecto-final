@@ -18,7 +18,11 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('contacto', 'HomeController@contact')->name('contact');
+
+//Users Routes
 Route::resource('users', 'UserController');
+Route::get('users/{slug}/comments', 'UserController@getComments')->name('users.comments');
+
 //Posts Routes
 Route::resource('posts', 'PostsController')->only('index', 'create','show', 'edit','store');
 Route::post('posts/{id}/update', 'PostsController@update')->name('posts.update');
