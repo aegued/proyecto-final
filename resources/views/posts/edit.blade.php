@@ -49,7 +49,9 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-6" id="imagePreview">
-                        <img src="{{ $post->image_url_path }}" class="img-fluid rounded">
+                        @if($post->image_url)
+                            <img src="{{ $post->image_url_path }}" class="img-fluid rounded">
+                        @endif
                     </div>
                     <div class="col-md-6">
                         <div class="custom-file">

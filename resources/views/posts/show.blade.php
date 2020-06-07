@@ -11,7 +11,14 @@
 @endsection
 
 @section('content')
+    @if(Auth::check() && auth()->user()->hasRole('admin'))
+        <div class="col-12">
+            <a href="{{ route('posts.edit', $post->slug) }}" class="btn btn-link float-right">Editar</a>
+        </div>
+    @endif
+
     <div class="col-lg-8 col-md-10 mx-auto">
+
         {!! $post->content !!}
 
         <hr class="mb-5">

@@ -135,7 +135,7 @@ class PostsController extends Controller
 
         $datatables = DataTables::of($posts)
             ->editColumn('user', function ($post){
-                return "<a href='".route('users.show', $post->user->slug)."' class='btn btn-link btn-sm'>".$post->user->name."</a>";
+                return "<a href='".route('users.comments', $post->user->slug)."' class='btn btn-link btn-sm'>".$post->user->name."</a>";
             })->editColumn('comments', function ($post){
                 return $post->comments->count();
             })->editColumn('created', function ($post){

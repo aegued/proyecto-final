@@ -36,7 +36,7 @@
                             <div class="dropdown-divider"></div>
                             @endif
 
-                            <a href="{{ route('users.show',Auth::user()->slug) }}" class="dropdown-item">Perfil</a>
+                            <a href="{{ route('users.comments',Auth::user()->slug) }}" class="dropdown-item">Perfil</a>
 
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();

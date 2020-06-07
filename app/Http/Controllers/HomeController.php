@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderByDesc('id')->paginate(10);
+        $posts = Post::orderByDesc('id')->paginate(12);
 
         return view('home')->with([
             'posts' =>  $posts

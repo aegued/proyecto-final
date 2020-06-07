@@ -19,39 +19,29 @@
         </div>
 
         <div class="row">
-            <div class="col text-center">
+            <div class="col-lg-3 text-center mb-5">
                 <i class="fas fa-user fa-5x text-info"></i>
                 <p class="font-weight-bold mt-4 mb-0 text-info">Nombre</p>
                 <small class="text-muted m-0">Alfredo Egüed Guerra</small>
             </div>
 
-            <div class="col text-center">
+            <div class="col-lg-3 text-center mb-5">
                 <i class="fas fa-home fa-5x text-info"></i>
                 <p class="font-weight-bold mt-4 mb-0 text-info">Dirección</p>
                 <small class="text-muted m-0">Calle Jesus, 4, 2a, Palma de Mallorca, España</small>
             </div>
 
-            <div class="col text-center">
+            <div class="col-lg-3 text-center mb-5">
                 <i class="fas fa-envelope fa-5x text-info"></i>
                 <p class="font-weight-bold mt-4 mb-0 text-info">Email</p>
                 <small class="text-muted m-0"><a href="mailto:egued89@gmail.com">egued89@gmail.com</a></small>
             </div>
 
-            <div class="col text-center">
+            <div class="col-lg-3 text-center mb-5">
                 <i class="fas fa-phone fa-5x text-info"></i>
                 <p class="font-weight-bold mt-4 mb-0 text-info">Teléfono</p>
                 <small class="text-muted m-0">+34 658 797 881</small>
             </div>
         </div>
-
-        {{--<hr class="mt-5 mb-5">
-
-        <div class="row">
-            <div class="col">
-                <h3 class="mb-5 text-center">Agradecimientos</h3>
-
-
-            </div>
-        </div>--}}
     </div>
 @endsection
