@@ -12,7 +12,7 @@ class Post extends Model
     use Sluggable, SluggableScopeHelpers;
 
     //The attributes that are mass assignable.
-    protected $fillable = ['title','content','user_id', 'image_url', 'slug'];
+    protected $fillable = ['title','content','user_id', 'image_url', 'slug','excerpt'];
 
     protected $appends = ['createdDate'];
 

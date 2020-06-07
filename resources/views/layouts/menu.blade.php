@@ -30,6 +30,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             @if(Auth::user()->hasRole('admin'))
+                            <a href="{{ route('posts.index') }}" class="dropdown-item">Artículos</a>
                             <a href="{{ route('posts.create') }}" class="dropdown-item">Crear Artículo</a>
 
                             <div class="dropdown-divider"></div>

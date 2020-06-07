@@ -7,11 +7,12 @@
             <div class="post-preview">
                 <a href="{{ route('posts.show', $post->slug) }}">
                     <h2 class="post-title">{{ $post->title }}</h2>
-                    <h3 class="post-subtitle">{!! Str::limit($post->content, 100, ' (...)') !!}</h3>
+                    <h3 class="post-subtitle">{!! Str::limit($post->excerpt, 100, ' (...)') !!}</h3>
                 </a>
                 <p class="post-meta">Creado por
-                    <a href="{{ route('users.comments ', $post->user->slug) }}">{{ $post->user->name }}</a>
-                    {{ $post->createdDate }}</p>
+                    <a href="{{ route('users.comments', $post->user->slug) }}">{{ $post->user->name }}</a>
+                    {{ $post->createdDate }}
+                </p>
             </div>
             <hr>
         @endforeach
