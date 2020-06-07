@@ -23,8 +23,7 @@ class PostsController extends Controller
     {
         $attributes = [
             'title'     =>  'Título',
-            'content'   =>  'Descripción',
-            'image_url' =>  'Imagen'
+            'content'   =>  'Descripción'
         ];
 
         $validator = Validator::make($request->all(),[
@@ -47,7 +46,9 @@ class PostsController extends Controller
 
         $post->save();
 
-        return redirect()->route('posts.show',$post->slug);
+        flash('El Artículo se ha creado correctamente.')->success();
+
+        return redirect()->route('posts.edit',$post->slug);
     }
 
     public function show($slug)
@@ -75,15 +76,54 @@ class PostsController extends Controller
         return view('posts.create');
     }
 
-    public function update()
+    public function update(Request $request, $slug)
     {
+        $attributes = [
+            'title'     =>  'Título',
+            'content'   =>  'Descripción'
+        ];
 
+        $validator = Validator::make($request->all(),[
+            'title'     =>  'required',
+            'content'   =>  'required',
+        ],[],$attributes);
+
+        if ($validator->fails())
+            return back()->withErrors($validator->errors());
+
+        $post = Post::findBySlugOrFail($slug);
+
+        $image = $request->file('image_url');
+
+        if ($image)
+        {
+            if ($post->image_url)
+                Storage::delete($post->image_url);
+
+            $path = $image->storeAs('public/images','image_'.now()->timestamp.'.'.$image->extension());
+            $post->image_url = $path;
+        }
+
+        $post->title = $request->title;
+        $post->content = $request['content'];
+        $post->excerpt = $request->excerpt;
+        $post->save();
+
+        flash('El Artículo se ha actualizado correctamente.')->success();
+
+        return redirect()->route('posts.edit',$post->slug);
     }
 
     public function destroy($slug)
     {
         $post = Post::findBySlugOrFail($slug);
+
+        if ($post->image_url)
+            Storage::delete($post->image_url);
+
         $post->delete();
+
+        flash('El Artículo se ha eliminado correctamente.')->warning();
 
         return redirect()->route('posts.index');
     }

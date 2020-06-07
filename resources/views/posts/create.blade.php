@@ -28,7 +28,7 @@
 
             <div class="form-group ">
                 <label for="content">Descripción</label>
-                <textarea name="content" id="content" cols="30" rows="10" class="form-control @error('title') is-invalid @enderror" autocomplete="content" autofocus>
+                <textarea name="content" id="content" cols="30" rows="10" class="form-control @error('content') is-invalid @enderror" autocomplete="content" autofocus>
                     {{ old('content') }}
                 </textarea>
 
@@ -39,8 +39,15 @@
                 @enderror
             </div>
 
+            <div class="form-group ">
+                <label for="excerpt">Descripción Corta</label>
+                <textarea name="excerpt" id="excerpt" cols="30" rows="6" class="form-control" autocomplete="excerpt" autofocus>{{ old('excerpt') }}</textarea>
+            </div>
+
             <div class="form-group">
                 <div class="row">
+                    <div class="col-md-6" id="imagePreview"></div>
+
                     <div class="col-md-6">
                         <div class="custom-file">
                             <input type="file" accept="image/*" name="image_url" class="custom-file-input @error('image_url') is-invalid @enderror" id="image_url">
@@ -55,6 +62,7 @@
                 </div>
             </div>
 
+            <hr>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
             </div>
@@ -82,6 +90,15 @@
                     ['insert', ['link', 'picture', 'video']],
                     ['view', ['codeview']]
                 ]
+            });
+
+            $('#image_url').on('change', function () {
+                let image=document.getElementById("image_url").files[0];
+                let imageUrl=URL.createObjectURL(image);
+
+                $('#imagePreview').html(
+                    '<img src="'+imageUrl+'" class="img-fluid rounded">'
+                );
             });
         });
     </script>

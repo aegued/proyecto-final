@@ -11,6 +11,7 @@
     <div class="col-lg-8 col-md-10 mx-auto">
         <h3>Listado de Artículos</h3>
         <hr class="mb-5">
+        @include('flash::message')
 
 
     </div>
