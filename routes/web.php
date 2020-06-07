@@ -20,7 +20,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('contacto', 'HomeController@contact')->name('contact');
 
 //Users Routes
-Route::resource('users', 'UserController')->only(['show']);
+//Route::resource('users', 'UserController')->only(['show']);
 Route::get('users/{slug}/comments', 'UserController@getComments')->name('users.comments');
 
 //Posts Routes
