@@ -3,6 +3,7 @@
 
 /*Buttons*/
 .btn{padding: 10px 25px;}
+td .btn{padding: 10px 15px; margin-right: 5px;}
 
 /*Pagination*/
 .page-link{padding: .35rem .75rem; color: #17a2b8;}

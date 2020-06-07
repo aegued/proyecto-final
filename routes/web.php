@@ -20,7 +20,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('contacto', 'HomeController@contact')->name('contact');
 
 //Users Routes
-Route::resource('users', 'UserController');
+Route::resource('users', 'UserController')->only(['show']);
 Route::get('users/{slug}/comments', 'UserController@getComments')->name('users.comments');
 
 //Posts Routes
@@ -30,7 +30,10 @@ Route::get('posts/{id}/destroy', 'PostsController@destroy')->name('posts.destroy
 
 //Rutas protegidas por Autenticacion
 Route::middleware('auth')->group(function (){
-//Comments Routes
+    //Comments Routes
     Route::resource('comments', 'CommentsController')->only('store');
     Route::get('comments/{id}/destroy','CommentsController@destroy')->name('comments.destroy');
+
+    //DataTables
+    Route::get('get_posts_datatables', 'PostsController@getPostsDataTable')->name('getPostsDataTable');
 });

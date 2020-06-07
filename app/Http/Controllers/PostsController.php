@@ -6,12 +6,13 @@ use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Yajra\DataTables\Facades\DataTables;
 
 class PostsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','role:admin'])->except('index','show');
+        $this->middleware(['auth','role:admin'])->except('show');
     }
 
     public function index()
@@ -126,5 +127,28 @@ class PostsController extends Controller
         flash('El Artículo se ha eliminado correctamente.')->warning();
 
         return redirect()->route('posts.index');
+    }
+
+    public function getPostsDataTable()
+    {
+        $posts = Post::all();
+
+        $datatables = DataTables::of($posts)
+            ->editColumn('user', function ($post){
+                return "<a href='".route('users.show', $post->user->slug)."' class='btn btn-link btn-sm'>".$post->user->name."</a>";
+            })->editColumn('comments', function ($post){
+                return $post->comments->count();
+            })->editColumn('created', function ($post){
+                return $post->createdDate;
+            })->editColumn('actions', function ($post){
+                $output = "";
+                $output .= "<a class='btn btn-info btn-sm' href='".route('posts.show',$post->slug)."' title='Mostrar'><i class='fas fa-eye'></i></a>";
+                $output .= "<a class='btn btn-success btn-sm' href='".route('posts.edit',$post->slug)."' title='Editar'><i class='fas fa-edit'></i></a>";
+                $output .= "<a class='btn btn-danger btn-sm' href='".route('posts.destroy',$post->slug)."' title='Eliminar' onclick='return confirm(\"¿Está seguro que desea eliminar el Artículo?\")'><i class='fas fa-trash'></i></a>";
+
+                return $output;
+            })->rawColumns(['except','user','comments','created','actions']);
+
+        return $datatables->make(true);
     }
 }

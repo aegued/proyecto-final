@@ -6,6 +6,11 @@ use App\User;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth','role:admin'])->only('show');
+    }
+
     public function show($slug)
     {
         $user = User::findBySlugOrFail($slug);
